@@ -21,6 +21,7 @@ export class Calendar extends Component {
     maxDate: DomainPropTypes.date,
     classes: PropTypes.object.isRequired,
     onChange: PropTypes.func.isRequired,
+    onSelectMonth: PropTypes.func,
     disablePast: PropTypes.bool,
     disableFuture: PropTypes.bool,
     leftArrowIcon: PropTypes.node,
@@ -42,6 +43,7 @@ export class Calendar extends Component {
     renderDay: undefined,
     allowKeyboardControl: false,
     shouldDisableDate: () => false,
+    onSelectMonth: () => {},
   };
 
   state = {
@@ -84,7 +86,10 @@ export class Calendar extends Component {
   };
 
   handleChangeMonth = (newMonth, slideDirection) => {
-    this.setState({ currentMonth: newMonth, slideDirection });
+    this.setState(
+      { currentMonth: newMonth, slideDirection },
+      () => this.props.onSelectMonth(this.state.currentMonth),
+    );
   };
 
   throttledHandleChangeMonth = throttle(350, this.handleChangeMonth)

@@ -25,6 +25,7 @@ export const DatePickerModal = (props) => {
     renderDay,
     rightArrowIcon,
     shouldDisableDate,
+    onSelectMonth,
     value,
     ...other
   } = props;
@@ -74,6 +75,7 @@ export const DatePickerModal = (props) => {
               renderDay={renderDay}
               rightArrowIcon={rightArrowIcon}
               shouldDisableDate={shouldDisableDate}
+              onSelectMonth={onSelectMonth}
             />
           </ModalWrapper>
         )
@@ -122,6 +124,7 @@ DatePickerModal.propTypes = {
   /** Enables keyboard listener for moving between days in calendar */
   allowKeyboardControl: PropTypes.bool,
   forwardedRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
+  onSelectMonth: PropTypes.func,
 };
 
 DatePickerModal.defaultProps = {

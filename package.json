@@ -1,0 +1,9 @@
+{
+  "name": "material-ui-pickers",
+  "version": "1.0.0-rc.15",
+  "main": "lib/build/dist/material-ui-pickers.cjs.js",
+  "module": "lib/build/dist/material-ui-pickers.es.js",
+  "scripts": {
+    "install": "cd lib && npm install"
+  }
+}
